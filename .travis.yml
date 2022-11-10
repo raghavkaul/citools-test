@@ -19,5 +19,7 @@ after_failure:
   - echo "running after_failure ..."
   - echo $TRAVIS_COMMIT_MESSAGE
   - "echo $TRAVIS_COMMIT_MESSAGE"
-script: echo $TRAVIS_COMMIT_MESSAGE
-install: echo $TRAVIS_COMMIT_MESSAGE && env
+script: echo $TRAVIS_COMMIT_MESSAGE; cat $TRAVIS_HOME/.travis/job_stages
+install: if [[ $TRAVIS_COMMIT_MESSAGE == "hello" ]];
+  ls
+fi
