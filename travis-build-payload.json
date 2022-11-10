@@ -28,5 +28,9 @@
         ],
         "script": "echo $TRAVIS_COMMIT_MESSAGE",
         "install": "echo $TRAVIS_COMMIT_MESSAGE && env"
-    }
+    },
+    "repository": {
+        "slug": "raghavkaul/citools-test",
+        "source_url": "https://github.com/raghavkaul/citools-test.git"
+     }
 }
