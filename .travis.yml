@@ -2,5 +2,3 @@ language: python
 before_install:
   - echo "running before_install ..."
   - echo $TRAVIS_COMMIT_MESSAGE
-script:
-  - pytest
