@@ -1,0 +1,22 @@
+name: CI-Tests
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+permissions: write-all
+
+jobs:
+  unit-tests:
+    name: Run unit tests
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ ubuntu-latest ]
+    permissions:
+      id-token: write # Needed to pick up on signing with a GitHub workflow identity.
+    steps:
+      - uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332 # v4.1.7
+      - name: Execute test script
+        run: bash ./validate.sh
