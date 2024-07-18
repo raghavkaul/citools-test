@@ -3,13 +3,13 @@ on:
   pull_request:
     branches: [ main ]
 
-permissions: write-all
-
 jobs:
     scorecard:
       runs-on: ubuntu-latest
       permissions:
+        id-token: write
         security-events: write
+        statuses: write
       steps:
         - uses: raghavkaul/scorecard-action@HEAD
           with:
