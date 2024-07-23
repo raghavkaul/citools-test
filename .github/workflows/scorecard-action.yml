@@ -17,7 +17,7 @@ jobs:
             results_format: sarif
             # publish_results: true
         
-            # Upload the results as artifacts (optional). Commenting out will disable
+        # Upload the results as artifacts (optional). Commenting out will disable
         # uploads of run results in SARIF format to the repository Actions tab.
         # https://docs.github.com/en/actions/advanced-guides/storing-workflow-data-as-artifacts
         - name: "Upload artifact"
@@ -26,3 +26,10 @@ jobs:
             name: SARIF file
             path: results.sarif
             retention-days: 5
+        
+        # Upload the results to GitHub's code scanning dashboard (optional).
+        # Commenting out will disable upload of results to your repo's Code Scanning dashboard
+        - name: "Upload to code-scanning"
+          uses: github/codeql-action/upload-sarif@1b1aada464948af03b950897e5eb522f92603cc2 # v3.24.9
+          with:
+            sarif_file: results.sarif
