@@ -1,0 +1,21 @@
+name: CI-Tests
+on:
+  pull_request:
+    branches: [ main ]
+
+permissions: write-all
+
+jobs:
+  unit-tests:
+    name: Run unit tests
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ ubuntu-latest ]
+    steps:
+      # - uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332 # v4.1.7
+      # - name: Execute test script
+      #   run: bash ./validate.sh
+      - name: Check title
+        run: |
+          echo "Some first line"
